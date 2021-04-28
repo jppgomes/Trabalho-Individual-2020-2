@@ -24,5 +24,4 @@ test_frontend:
   scrpit:
     - echo "Executando teste frontend"
     - npm install -g @vue/cli && npm install -g @quasar/cli
-    - cd client
     - quasar test --unit jest --dev="-m pwa"
