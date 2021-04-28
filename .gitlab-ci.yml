@@ -10,7 +10,7 @@ stages:
 ######################## Tests #############################
 ############################################################
 test_flake8:
-  image: ejplatform/python:alpine
+  image: python:3
   stage: test
   script:
     - echo "Executando teste...."
