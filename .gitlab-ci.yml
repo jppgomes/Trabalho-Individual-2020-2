@@ -14,3 +14,5 @@ test_flake8:
   stage: test
   script:
     - echo "Executando teste...."
+    - pip install -r ./api/requirements.txt
+    - python ./api/manage.py test
