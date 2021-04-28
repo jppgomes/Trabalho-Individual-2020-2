@@ -1,5 +1,6 @@
 stages:
-  - test
+  - test_backend
+  - test_frontend
 
 ############################################################
 ######################## Variables #########################
@@ -9,10 +10,19 @@ stages:
 ############################################################
 ######################## Tests #############################
 ############################################################
-test_flake8:
+test_backend:
   image: python:3
-  stage: test
+  stage: test_backend
   script:
     - echo "Executando teste...."
     - pip install -r ./api/requirements.txt
     - python ./api/manage.py test
+
+test_frontend:
+        image: node:12.4.0-alpine
+        stage: test_frontend
+        scrpit:
+          - echo "Executando teste frontend"
+          - npm install -g @vue/cli && npm install -g @quasar/cli
+          - cd client
+          - quasar test --unit jest --dev="-m pwa"
