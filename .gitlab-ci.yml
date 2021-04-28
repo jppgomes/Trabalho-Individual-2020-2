@@ -1,10 +1,16 @@
-# This file is a template, and might need editing before it works on your project.
-# This file is a template demonstrating the `script` keyword.
-# Learn more about this keyword here: https://docs.gitlab.com/ee/ci/yaml/README.html#script
+stages:
+  - test
 
-# After committing this template, visit CI/CD > Jobs to see the script output.
+############################################################
+######################## Variables #########################
+############################################################
 
-job:
-  script:  
-    # provide a shell script as argument for this keyword.
-    - echo "Hello World"
+
+############################################################
+######################## Tests #############################
+############################################################
+test_flake8:
+  image: ejplatform/python:alpine
+  stage: test
+  script:
+    - echo "Executando teste...."
