@@ -1,6 +1,5 @@
 stages:
-  - test_backend
-  - test_frontend
+  - test
 
 ############################################################
 ######################## Variables #########################
@@ -12,7 +11,7 @@ stages:
 ############################################################
 test_backend:
   image: python:3
-  stage: test_backend
+  stage: test
   script:
     - echo "Executando teste...."
     - pip install -r ./api/requirements.txt
@@ -20,7 +19,7 @@ test_backend:
 
 test_frontend:
   image: node:12.4.0-alpine
-  stage: test_frontend
+  stage: teste
   scrpit:
     - echo "Executando teste frontend"
     - npm install -g @vue/cli && npm install -g @quasar/cli
