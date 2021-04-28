@@ -17,10 +17,11 @@ test_backend:
     - pip install -r ./api/requirements.txt
     - python ./api/manage.py test
 
-test_frontend:
+
+test_front:
   image: node:12.4.0-alpine
-  stage: teste
-  scrpit:
-    - echo "Executando teste frontend"
+  stage: test
+  script:
+    - echo "Executando teste...."
     - npm install -g @vue/cli && npm install -g @quasar/cli
     - quasar test --unit jest --dev="-m pwa"
