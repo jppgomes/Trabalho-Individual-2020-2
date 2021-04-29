@@ -43,6 +43,9 @@ jobs:
       - name: Install coverage
         run: pip install coverage
 
+      - name: Install code style
+        run: pip install pycodestyle
+
       - name: ⭐ Análise folha de estilo com pycodestyle
         run: pycodestyle --statistics api/.
 
