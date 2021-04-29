@@ -54,9 +54,6 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_PASSWORD: postgres
 
-      - name: ⭐⭐⭐ Python static code analysis with pylint
-        run: pylint --load-plugins pylint_django --django-settings-module=api.settings --fail-under=5 api/**/*.py
-
       - name: ⭐⭐⭐⭐ Análise de cobertura de testes
         run: |
           coverage run api/manage.py test api
