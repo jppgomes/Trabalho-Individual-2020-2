@@ -15,10 +15,19 @@ jobs:
         ports:
           - 5432:5432 
     
+
+
     steps:    
+      - name: check python
+        run:
+          python -v
+
+      - name: pwd
+        run:
+          pwd
+
       - name: cobertura de testes
-        run: |
-          echo "{$pwd}"
+        run: |          
           pip install coverage
           coverage run ./api/manage.py test api
           coverage report --fail-under=90
