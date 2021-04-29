@@ -1,4 +1,4 @@
-name: TEst
+name: Test
 
 on: push
 
@@ -46,7 +46,7 @@ jobs:
       - name: Install code style
         run: pip install pycodestyle
 
-      - name: ⭐⭐ Run Test with django manage.py test # running tests
+      - name:  Run Test with django manage.py test # running tests
         run: python api/manage.py test
         env:
           POSTGRES_DB: postgres
@@ -54,7 +54,7 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_PASSWORD: postgres
 
-      - name: ⭐⭐⭐⭐ Análise de cobertura de testes
+      - name:  Análise de cobertura de testes
         run: |
           coverage run api/manage.py test api
           coverage report --fail-under=90
