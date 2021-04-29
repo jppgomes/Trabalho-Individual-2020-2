@@ -18,6 +18,7 @@ jobs:
     steps:    
       - name: cobertura de testes
         run: |
+          echo "{$pwd}"
           pip install coverage
           coverage run ./api/manage.py test api
           coverage report --fail-under=90
