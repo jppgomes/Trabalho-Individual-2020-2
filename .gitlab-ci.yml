@@ -15,7 +15,10 @@ test_backend:
   script:
     - echo "Executando teste...."
     - pip install -r ./api/requirements.txt
+    - pip install coverage
     - python ./api/manage.py test
+    - coverage run --source='.' manage.py test
+    - coverage report
 
 
 test_front:
