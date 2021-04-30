@@ -17,17 +17,17 @@ jobs:
           - 5432:5432 
 
     steps:
-      - name: Checkout code # checking our the code at current commit that triggers the workflow
-        uses: actions/checkout@v2Test
-
-      - name: Cache dependency # caching dependency will make our build faster.
-        uses: actions/cache@v2 # for more info checkout pip section documentation at https://github.com/actions/cache
+      - name: Checkout code 
+        uses: actions/checkout@v2
+        
+      - name: Cache dependency 
+        uses: actions/cache@v2 
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - name: Set up Python 3.8 # setting python environment to 3.x
+      - name: Set up Python 3.8 
         uses: actions/setup-python@v2
         with:
           python-version: '3.8' 
@@ -44,7 +44,7 @@ jobs:
       - name: Install code style
         run: pip install pycodestyle
 
-      - name:  Run Test with django manage.py test # running tests
+      - name:  Run Test with django manage.py test 
         run: python api/manage.py test
         env:
           POSTGRES_DB: postgres
