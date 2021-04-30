@@ -34,3 +34,14 @@ build_backend:
     - docker login -u jppgomes -p trabalhofga
     - docker tag jppgomes jppgomes/jppgomes
     - docker push jppgomes/jppgomes
+
+  build_frontend:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - docker build -f client/Dockerfile -t clientbuild .
+    - docker login -u jppgomes -p trabalhofga
+    - docker tag jppgomes jppgomes/clientbuild
+    - docker push jppgomes/clientbuild
