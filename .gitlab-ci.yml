@@ -1,10 +1,6 @@
 stages:
   - test
 
-############################################################
-######################## Variables #########################
-############################################################
-
 
 ############################################################
 ######################## Tests #############################
@@ -17,7 +13,7 @@ test_backend:
     - pip install -r ./api/requirements.txt
     - pip install coverage
     - python ./api/manage.py test
-    - coverage run --source='.' manage.py test
+    - coverage run --source='.' ./api/manage.py test
     - coverage report
 
 
