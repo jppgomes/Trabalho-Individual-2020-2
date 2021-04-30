@@ -1,6 +1,6 @@
 stages:
   - test
-
+  - build
 
 ############################################################
 ######################## Tests #############################
@@ -16,7 +16,6 @@ test_backend:
     - coverage run --source='.' ./api/manage.py test
     - coverage report
 
-
 test_front:
   image: node:12.4.0-alpine
   stage: test
@@ -24,3 +23,14 @@ test_front:
     - echo "Executando teste...."
     - npm install -g @vue/cli && npm install -g @quasar/cli
     - quasar test --unit jest --dev="-m pwa"
+
+build_backend:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - docker build -f api/Dockerfile -t jppgomes .
+    - docker login -u jppgomes -p trabalhofga
+    - docker tag jppgomes jppgomes/jppgomes
+    - docker push jppgomes/jppgomes
