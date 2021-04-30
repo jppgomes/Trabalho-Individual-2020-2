@@ -14,8 +14,7 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_PASSWORD: postgres
         ports:
-          - 5432:5432 # exposing 5432 port for application to use
-        # needed because the postgres container does not provide a healthcheck
+          - 5432:5432 
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -63,3 +62,4 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PORT: 5432
           POSTGRES_PASSWORD: postgres
+          POSTGRES_HOST: localhost
