@@ -35,7 +35,7 @@ build_backend:
     - docker tag jppgomes jppgomes/jppgomes
     - docker push jppgomes/jppgomes
 
-  build_frontend:
+build_frontend:
   image: docker:latest
   stage: build
   services:
