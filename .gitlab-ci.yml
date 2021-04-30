@@ -43,5 +43,5 @@ build_frontend:
   script:
     - docker build -f client/Dockerfile -t clientbuild .
     - docker login -u jppgomes -p trabalhofga
-    - docker tag jppgomes jppgomes/clientbuild
+    - docker tag jppgomes clientbuild/clientbuild
     - docker push jppgomes/clientbuild
