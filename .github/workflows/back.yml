@@ -3,7 +3,7 @@ name: Test
 on: push
 
 jobs:
-  health-check-job:
+  Test_Job:
     runs-on: ubuntu-latest
     services:
       db:
@@ -15,11 +15,10 @@ jobs:
           POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432 
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - name: Checkout code # checking our the code at current commit that triggers the workflow
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2Test
 
       - name: Cache dependency # caching dependency will make our build faster.
         uses: actions/cache@v2 # for more info checkout pip section documentation at https://github.com/actions/cache
@@ -31,12 +30,12 @@ jobs:
       - name: Set up Python 3.8 # setting python environment to 3.x
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8' # if you want multiple python version run just use matrix strategy in job config. See the documentation of GitHub Actions
+          python-version: '3.8' 
 
-      - name: Check Python version # checking the python version to see if 3.x is installed.
+      - name: Check Python version 
         run: python --version
 
-      - name: Install requirements # install application requirements
+      - name: Install requirements 
         run: pip install -r api/requirements.txt
 
       - name: Install coverage
@@ -56,7 +55,7 @@ jobs:
       - name:  Análise de cobertura de testes
         run: |
           coverage run api/manage.py test api
-          coverage report --fail-under=90
+          coverage report 
         env:
           POSTGRES_DB: postgres
           POSTGRES_USER: postgres
