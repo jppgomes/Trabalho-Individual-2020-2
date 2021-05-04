@@ -32,6 +32,13 @@ lint_backend:
     - pip install flake8
     - flake8 ./api/ --exclude=./api/task/,./api/api/settings.py
 
+lint_frontend:
+  image: node:12.4.0-alpine
+  stage: lint
+  script:
+    - cd client/
+    - yarn test 
+
 build_backend:
   image: docker:latest
   stage: build
