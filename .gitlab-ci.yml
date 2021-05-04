@@ -29,6 +29,7 @@ lint_backend:
   image: python:3
   stage: lint
   script:
+    - pip install flake8
     - flake8 ./api/ --exclude=./api/task/,./api/api/settings.py
 
 build_backend:
