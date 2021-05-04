@@ -29,7 +29,7 @@ lint_backend:
   image: python:3
   stage: lint
   script:
-    - flake8 ./api/ --exclude=./api/task/
+    - flake8 ./api/ --exclude=./api/task/,./api/api/settings.py
 
 build_backend:
   image: docker:latest
