@@ -1,5 +1,7 @@
 # Trabalho Individual 2020.2
 
+![codecov](https://github.com/jppgomes/Trabalho-Individual-2020-2/blob/master/coverage.svg)
+
 Integration with gitlab
 
 A Gestão de Configuração de Software é parte fundamental no curso de GCES, e dominar os conhecimentos de configuração de ambiente, containerização, virtualização, integração e deploy contínuo tem se tornado cada vez mais necessário para ingressar no mercado de trabalho.
