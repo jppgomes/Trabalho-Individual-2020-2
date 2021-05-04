@@ -37,7 +37,7 @@ lint_frontend:
   stage: lint
   script:
     - cd client/
-    - yarn test 
+    - yarn && yarn lint 
 
 build_backend:
   image: docker:latest
