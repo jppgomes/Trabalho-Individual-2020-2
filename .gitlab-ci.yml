@@ -1,5 +1,6 @@
 stages:
   - test
+  - lint
   - build
 
 ############################################################
@@ -23,6 +24,12 @@ test_front:
     - echo "Executando teste...."
     - npm install -g @vue/cli && npm install -g @quasar/cli
     - quasar test --unit jest --dev="-m pwa"
+
+lint_backend:
+  image: python:3
+  stage: lint
+  script:
+    - flake8 ./api/ --exclude=./api/task/
 
 build_backend:
   image: docker:latest
